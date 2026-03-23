@@ -1,236 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>A Simple Scene – Myron Tennell</title>
-<script src=
-"https://aframe.io/releases/1.7.0/aframe.min.js">
-</script>
+  <title>A Simple Scene – Myron Tennell</title>
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
 </head>
 <body>
-<a-scene>
-<a-assets>
-<img
-id="grass-base"
-src="assets\Grass_005_BaseColor.jpg"
->
-<img
-id="grass-ambient-occlusion"
-src="assets\Grass_005_AmbientOcclusion.jpg"
->
-<img
-id="grass-normal"
-src="assets\Grass_005_Normal.jpg"
->
-<img
-id="sphericaltreeleaves-base"
-src="assets\Stylized_Leaves_001_basecolor.jpg"
->
-<img
-id="sphericaltreeleaves-ambient-occlusion"
-src="assets\Stylized_Leaves_001_ambientOcclu
-sion.jpg"
->
-<img
-id="sphericaltreeleaves-normal"
-src="assets\Stylized_Leaves_001_normal.jpg"
->
-<img
-id="conicaltreeleaves-base"
-src="assets\Stylized_Leaves_002_basecolor.jpg"
->
-<img
-id="conicaltreeleaves-ambient-occlusion"
-src="assets\Stylized_Leaves_002_ambientOcclu
-sion.jpg"
->
-<img
-id="conicaltreeleaves-normal"
-src="assets\Stylized_Leaves_002_normal.jpg"
->
-<img
-id="treetrunk-base"
-src="assets\Bark_06_basecolor.jpg"
->
-<img
-id="treetrunk-ambient-occlusion"
-src="assets\Bark_06_ambientOcclusion.jpg"
->
-<img
-id="treetrunk-normal"
-src="assets\Bark_06_normal.jpg"
->
-</a-assets>
-<a-plane
-material="src: #grass-base;
-repeat: 500 500;
-ambientOcclusionMap: #grass-ambient-occlusion;
-ambientOcclusionTextureRepeat: 500 500;
-normalMap: #grass-normal;
-normalTextureRepeat: 500 500"
-position="0 0 0"
-rotation="-90 0 0"
-width="500"
-height="500"
->
-</a-plane>
-<a-sky
-color="lightskyblue"
->
-</a-sky>
-<a-mixin
-id="wallcolor"
-color="white"
->
-</a-mixin>
-<a-box
-mixin="wallcolor"
-position="0 1.5 -16"
-rotation="0 0 0"
-width="10"
-height="3"
-depth="0.1"
->
-</a-box>
-<a-box
-mixin="wallcolor"
-position="-5 1.5 -11"
-rotation="0 90 0"
-width="10"
-height="3"
-depth="0.1"
->
-</a-box>
-<a-box
-mixin="wallcolor"
-position="5 1.5 -11"
-rotation="0 90 0"
-width="10"
-height="3"
-depth="0.1"
->
-</a-box>
-<a-box
-mixin="wallcolor"
-position="-2.875 1.5 -6"
-rotation="0 0 0"
-width="4.25"
-height="3"
-depth="0.1"
->
-</a-box>
-<a-box
-mixin="wallcolor"
-position="2.875 1.5 -6"
-rotation="0 0 0"
-width="4.25"
-height="3"
-depth="0.1"
->
-</a-box>
-<a-box
-mixin="wallcolor"
-position="0 2.75 -6"
-rotation="0 0 0"
-width="1.5"
-height="0.5"
-depth="0.1"
->
-</a-box>
-<a-box
-color="tan"
-position="0 0 -11"
-width="10"
-depth="10"
-height="0.1"
->
-</a-box>
-<a-box
-color="darkgray"
-position="0 3 -11"
-width="12"
-depth="12"
-height="0.25"
->
-</a-box>
-<a-mixin
-id="treetrunk"
-material =
-"src: #treetrunk-base;
-repeat: 3 5;
-ambientOcclusionMap: #treetrunk-ambient-occlusion;
-ambientOcclusionTextureRepeat: 3 5;
-normalMap: #treetrunk-normal;
-normalTextureRepeat: 3 5"
-geometry="radius:0.2; height:3"
->
-</a-mixin>
-<a-cylinder
-mixin="treetrunk"
-position="-8 1 -7"
->
-</a-cylinder>
-<a-cylinder
-mixin="treetrunk"
-position="-3 1 -1"
->
-</a-cylinder>
-<a-cylinder
-mixin="treetrunk"
-position="8 1 -6"
->
-</a-cylinder>
-<a-cylinder
-mixin="treetrunk"
-position="4 1 -2"
->
-</a-cylinder>
-<a-mixin
-id="conicaltreeleaves"
-material =
-"src: #conicaltreeleaves-base;
-repeat: 2 2;
-ambientOcclusionMap: #conicaltreeleaves-ambient-
-occlusion;
-ambientOcclusionTextureRepeat: 2 2;
-normalMap: #conicaltreeleaves-normal;
-normalTextureRepeat: 2 2;"
-geometry="radius-bottom:1; height:3"
-geometry="radius-bottom:1; height:3"
->
-</a-mixin>
-<a-cone
-mixin="conicaltreeleaves"
-position="-8 2.25 -7"
->
-</a-cone>
-<a-cone
-mixin="conicaltreeleaves"
-position="4 2.25 -2"
->
-</a-cone>
-<a-mixin
-id="sphericaltreeleaves"
-material =
-"src: #sphericaltreeleaves-base;
-repeat: 8 8;
-ambientOcclusionMap: #sphericaltreeleaves-ambient-
-occlusion;
-ambientOcclusionTextureRepeat: 8 8;
-normalMap: #sphericaltreeleaves-normal;
-normalTextureRepeat: 8 8;"
-geometry="radius:1"
->
-</a-mixin>
-<a-sphere
-mixin="sphericaltreeleaves"
-position="-3 2 -1"
->
-</a-sphere>
-<a-sphere
-mixin="sphericaltreeleaves"
-position="8 2 -6"
->
-</a-sphere>
-</a-scene>
+  <a-scene shadow="type: pcfsoft">
+
+    <!-- Assets -->
+    <a-assets>
+      <!-- Grass -->
+      <img id="grass-base" src="assets/Grass_005_BaseColor.jpg">
+      <img id="grass-ambient-occlusion" src="assets/Grass_005_AmbientOcclusion.jpg">
+      <img id="grass-normal" src="assets/Grass_005_Normal.jpg">
+
+      <!-- Spherical Tree Leaves -->
+      <img id="sphericaltreeleaves-base" src="assets/Stylized_Leaves_001_basecolor.jpg">
+      <img id="sphericaltreeleaves-ambient-occlusion" src="assets/Stylized_Leaves_001_ambientOcclusion.jpg">
+      <img id="sphericaltreeleaves-normal" src="assets/Stylized_Leaves_001_normal.jpg">
+
+      <!-- Conical Tree Leaves -->
+      <img id="conicaltreeleaves-base" src="assets/Stylized_Leaves_002_basecolor.jpg">
+      <img id="conicaltreeleaves-ambient-occlusion" src="assets/Stylized_Leaves_002_ambientOcclusion.jpg">
+      <img id="conicaltreeleaves-normal" src="assets/Stylized_Leaves_002_normal.jpg">
+
+      <!-- Tree Trunk -->
+      <img id="treetrunk-base" src="assets/Bark_06_basecolor.jpg">
+      <img id="treetrunk-ambient-occlusion" src="assets/Bark_06_ambientOcclusion.jpg">
+      <img id="treetrunk-normal" src="assets/Bark_06_normal.jpg">
+    </a-assets>
+
+    <!-- Ground -->
+    <a-plane
+      material="src: #grass-base; repeat: 500 500; ambientOcclusionMap: #grass-ambient-occlusion; ambientOcclusionTextureRepeat: 500 500; normalMap: #grass-normal; normalTextureRepeat: 500 500"
+      position="0 0 0"
+      rotation="-90 0 0"
+      width="500"
+      height="500"
+      shadow
+    ></a-plane>
+
+    <!-- Sky -->
+    <a-sky color="lightskyblue"></a-sky>
+
+    <!-- Lighting -->
+    <a-entity light="type: directional; intensity: 1" position="0 10 0" castShadow></a-entity>
+    <a-entity light="type: ambient; intensity: 0.5"></a-entity>
+
+    <!-- Walls -->
+    <a-mixin id="wallcolor" color="white"></a-mixin>
+    <a-box mixin="wallcolor" position="0 1.5 -16" width="10" height="3" depth="0.1" shadow></a-box>
+    <a-box mixin="wallcolor" position="-5 1.5 -11" rotation="0 90 0" width="10" height="3" depth="0.1" shadow></a-box>
+    <a-box mixin="wallcolor" position="5 1.5 -11" rotation="0 90 0" width="10" height="3" depth="0.1" shadow></a-box>
+    <a-box mixin="wallcolor" position="-2.875 1.5 -6" width="4.25" height="3" depth="0.1" shadow></a-box>
+    <a-box mixin="wallcolor" position="2.875 1.5 -6" width="4.25" height="3" depth="0.1" shadow></a-box>
+    <a-box mixin="wallcolor" position="0 2.75 -6" width="1.5" height="0.5" depth="0.1" shadow></a-box>
+
+    <!-- Floor/Platform -->
+    <a-box color="tan" position="0 0 -11" width="10" depth="10" height="0.1" shadow></a-box>
+    <a-box color="darkgray" position="0 3 -11" width="12" depth="12" height="0.25" shadow></a-box>
+
+    <!-- Tree Trunks -->
+    <a-mixin id="treetrunk" 
+      material="src: #treetrunk-base; repeat: 3 5; ambientOcclusionMap: #treetrunk-ambient-occlusion; ambientOcclusionTextureRepeat: 3 5; normalMap: #treetrunk-normal; normalTextureRepeat: 3 5" 
+      geometry="primitive: cylinder; radius:0.2; height:3"
+    ></a-mixin>
+
+    <a-cylinder mixin="treetrunk" position="-8 1 -7" shadow></a-cylinder>
+    <a-cylinder mixin="treetrunk" position="-3 1 -1" shadow></a-cylinder>
+    <a-cylinder mixin="treetrunk" position="8 1 -6" shadow></a-cylinder>
+    <a-cylinder mixin="treetrunk" position="4 1 -2" shadow></a-cylinder>
+
+    <!-- Conical Tree Leaves -->
+    <a-mixin id="conicaltreeleaves" 
+      material="src: #conicaltreeleaves-base; repeat: 2 2; ambientOcclusionMap: #conicaltreeleaves-ambient-occlusion; ambientOcclusionTextureRepeat: 2 2; normalMap: #conicaltreeleaves-normal; normalTextureRepeat: 2 2" 
+      geometry="primitive: cone; radius-bottom:1; height:3"
+    ></a-mixin>
+
+    <a-cone mixin="conicaltreeleaves" position="-8 2.25 -7" shadow></a-cone>
+    <a-cone mixin="conicaltreeleaves" position="4 2.25 -2" shadow></a-cone>
+
+    <!-- Spherical Tree Leaves -->
+    <a-mixin id="sphericaltreeleaves"
+      material="src: #sphericaltreeleaves-base; repeat: 8 8; ambientOcclusionMap: #sphericaltreeleaves-ambient-occlusion; ambientOcclusionTextureRepeat: 8 8; normalMap: #sphericaltreeleaves-normal; normalTextureRepeat: 8 8"
+      geometry="primitive: sphere; radius:1"
+    ></a-mixin>
+
+    <a-sphere mixin="sphericaltreeleaves" position="-3 2 -1" shadow></a-sphere>
+    <a-sphere mixin="sphericaltreeleaves" position="8 2 -6" shadow></a-sphere>
+
+    <!-- Camera + Controls -->
+    <a-entity camera position="0 2 5" wasd-controls look-controls>
+      <a-entity cursor="fuse: false; rayOrigin: mouse" raycaster="objects: .clickable"></a-entity>
+    </a-entity>
+
+  </a-scene>
 </body>
 </html>
