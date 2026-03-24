@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Urban Scene – Myron Tennell</title>
+  <title>Simple Scene – Myron Tennell</title>
   <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
 </head>
 <body>
-  <a-scene shadow="type: pcfsoft" fog="type: linear; color: #aabbbb; near:10; far:50">
+  <a-scene shadow="type: pcfsoft">
 
     <!-- Assets -->
     <a-assets>
-      <!-- Grass -->
-      <img id="grass-base" src="assets/Grass_005_BaseColor.jpg">
-      <img id="grass-ambient-occlusion" src="assets/Grass_005_AmbientOcclusion.jpg">
-      <img id="grass-normal" src="assets/Grass_005_Normal.jpg">
-      <!-- Tree leaves and trunks -->
-      <img id="sphericaltreeleaves-base" src="assets/Stylized_Leaves_001_basecolor.jpg">
-      <img id="sphericaltreeleaves-ambient-occlusion" src="assets/Stylized_Leaves_001_ambientOcclusion.jpg">
-      <img id="sphericaltreeleaves-normal" src="assets/Stylized_Leaves_001_normal.jpg">
-      <img id="treetrunk-base" src="assets/Bark_06_basecolor.jpg">
-      <img id="treetrunk-ambient-occlusion" src="assets/Bark_06_ambientOcclusion.jpg">
-      <img id="treetrunk-normal" src="assets/Bark_06_normal.jpg">
+      <img id="grass" src="assets/Grass_005_BaseColor.jpg">
+      <img id="leaves" src="assets/Stylized_Leaves_001_basecolor.jpg">
+      <img id="bark" src="assets/Bark_06_basecolor.jpg">
     </a-assets>
 
     <!-- Ground -->
-    <a-plane
-      material="src: #grass-base; repeat: 100 100; ambientOcclusionMap: #grass-ambient-occlusion; ambientOcclusionTextureRepeat: 100 100; normalMap: #grass-normal; normalTextureRepeat: 100 100"
-      rotation="-90 0 0" width="200" height="200" shadow>
-    </a-plane>
+    <a-plane src="#grass" repeat="50 50" rotation="-90 0 0" width="100" height="100" shadow></a-plane>
 
     <!-- Sky -->
-    <a-sky color="#87ceeb"></a-sky>
+    <a-sky color="#87CEEB"></a-sky>
 
     <!-- Lighting -->
-    <a-entity light="type: directional; intensity: 1" position="10 20 10" castShadow></a-entity>
+    <a-entity light="type: directional; intensity: 1" position="5 10 5" castShadow></a-entity>
     <a-entity light="type: ambient; intensity: 0.4"></a-entity>
 
     <!-- Camera -->
-    <a-entity camera position="0 2 15" wasd-controls look-controls>
-      <a-entity cursor="fuse: false; rayOrigin: mouse"></a-entity>
-    </a-entity>
+    <a-entity camera position="0 2 10" wasd-controls look-controls></a-entity>
 
-    <!-- Buildings -->
-    <a-box color="#b0c4de" depth="10" width="8" height="15" position="-15 7.5 -20" shadow></a-box>
-    <a-box color="#a0522d" depth="8" width="6" height="10" position="10 5 -25" shadow></a-box>
-    <a-box color="#4682b4" depth="6" width="6" height="12" position="0 6 -30" shadow></a-box>
-    <a-box color="#708090" depth="12" width="10" height="20" position="20 10 -15" shadow></a-box>
+    <!-- HOUSE -->
+    <!-- Base -->
+    <a-box position="0 1 -5" width="4" height="2" depth="4" color="#d2b48c" shadow></a-box>
 
-    <!-- Trees -->
-    <a-mixin id="treetrunk" material="src: #treetrunk-base; repeat: 3 5; ambientOcclusionMap: #treetrunk-ambient-occlusion; ambientOcclusionTextureRepeat: 3 5; normalMap: #treetrunk-normal; normalTextureRepeat: 3 5" geometry="primitive: cylinder; radius:0.3; height:4"></a-mixin>
-    <a-mixin id="sphericaltreeleaves" material="src: #sphericaltreeleaves-base; repeat: 8 8; ambientOcclusionMap: #sphericaltreeleaves-ambient-occlusion; ambientOcclusionTextureRepeat: 8 8; normalMap: #sphericaltreeleaves-normal; normalTextureRepeat: 8 8;" geometry="primitive: sphere; radius:1.5"></a-mixin>
+    <!-- Roof -->
+    <a-cone position="0 3 -5" radius-bottom="3" height="2" color="#8b0000" shadow></a-cone>
 
-    <a-cylinder mixin="treetrunk" position="-10 2 -10" shadow></a-cylinder>
-    <a-sphere mixin="sphericaltreeleaves" position="-10 4 -10" shadow></a-sphere>
-    <a-cylinder mixin="treetrunk" position="12 2 -12" shadow></a-cylinder>
-    <a-sphere mixin="sphericaltreeleaves" position="12 4 -12" shadow></a-sphere>
+    <!-- Door -->
+    <a-box position="0 0.75 -3" width="1" height="1.5" depth="0.1" color="#654321"></a-box>
 
-    <!-- Roads -->
-    <a-plane color="#333" rotation="-90 0 0" width="200" height="5" position="0 0.01 -5" shadow></a-plane>
-    <a-plane color="#333" rotation="-90 0 0" width="200" height="5" position="0 0.01 -15" shadow></a-plane>
+    <!-- TREES -->
+    <!-- Tree 1 -->
+    <a-cylinder src="#bark" position="-5 1 -5" height="2" radius="0.3" shadow></a-cylinder>
+    <a-sphere src="#leaves" position="-5 3 -5" radius="1.5" shadow></a-sphere>
+
+    <!-- Tree 2 -->
+    <a-cylinder src="#bark" position="5 1 -6" height="2" radius="0.3" shadow></a-cylinder>
+    <a-sphere src="#leaves" position="5 3 -6" radius="1.5" shadow></a-sphere>
+
+    <!-- Tree 3 -->
+    <a-cylinder src="#bark" position="2 1 -10" height="2" radius="0.3" shadow></a-cylinder>
+    <a-sphere src="#leaves" position="2 3 -10" radius="1.5" shadow></a-sphere>
+
+    <!-- ROAD -->
+    <a-plane color="#333" rotation="-90 0 0" width="100" height="4" position="0 0.01 -2"></a-plane>
+
+    <!-- Road lines -->
+    <a-plane color="#fff" rotation="-90 0 0" width="2" height="0.2" position="0 0.02 -2"></a-plane>
+    <a-plane color="#fff" rotation="-90 0 0" width="2" height="0.2" position="4 0.02 -2"></a-plane>
+    <a-plane color="#fff" rotation="-90 0 0" width="2" height="0.2" position="-4 0.02 -2"></a-plane>
 
   </a-scene>
 </body>
